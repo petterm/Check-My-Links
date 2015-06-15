@@ -165,7 +165,6 @@
 
 		<strong>Valid Link Caching</strong>
 		<p>If you don't want to constantly re-check good (green, HTTP 200) links, enable the option below to force the extension to only check links which were previously broken (red, HTTP 404 etc). Enabling 'Valid Link Caching' vastly reduces the time it will take to repeatedly check a page.</p>
-
 		<label for="cache">Cache Valid Links: </label> <input type="checkbox" name="cache" id="cache" value="1">
 
 		<div class="buttons">
@@ -175,17 +174,18 @@
 		<div id="msgCache" style="visibility: hidden;">Cache cleared!</div>
 
 		<hr/>
+		
 		<strong>Nofollow Links</strong>
 		<p>By default, Check My Links will not check links with a link rel attribute of 'nofollow', you should apply this attribute to links you don't want the extension to trigger (such as Log Out, Sign Out links etc).</p>
-	    <label for="noFollow">Check Links with rel="nofollow":</label> <input type="checkbox" name="noFollow" id="noFollow" value="1"><br />
-    	
-    	<hr/>
+		<label for="noFollow">Check Links with rel="nofollow":</label> <input type="checkbox" name="noFollow" id="noFollow" value="1"><br />
+		
+		<hr/>
 
 		<strong>Hash Links</strong>
 		<p>By default, Check My Links will look for an element on the target page with an id matching the hash fragment. If it is not found the link is reported as a 404. Uncheck to disable this behaviour.</p>
-	    <label for="hashElement">Check for element with hash id:</label> <input type="checkbox" name="hashElement" id="hashElement" value="1"><br />
+		<label for="hashElement">Check for element with hash id:</label> <input type="checkbox" name="hashElement" id="hashElement" value="1"><br />
 
-	    <hr/>
+		<hr/>
 
 		<div id="support">
 
