@@ -12,6 +12,7 @@ var blacklistDefaults =
 var checkTypeDefault = "GET";
 var cacheDefault = "false";
 var noFollowDefault = "false";
+var hashElementDefault = "true";
 chrome.extension.onMessage.addListener(onRequest);
 
 chrome.browserAction.onClicked.addListener(function (tab) {
@@ -33,14 +34,19 @@ chrome.browserAction.onClicked.addListener(function (tab) {
           setItem("noFollow", noFollowDefault);
         }
 
+        if(getItem("hashElement") == null){
+          setItem("hashElement", hashElementDefault);
+        }
+
         var blacklist = getItem("blacklist");
         var nofollow = getItem("noFollow");
         checkType = getItem("checkType");
         var cacheType = getItem("cache");
+        var hashElement = getItem("hashElement");
         var optionsURL = chrome.extension.getURL("options.html");
 
 
-        chrome.tabs.sendMessage(tab.id, {bl:blacklist, ct:checkType, ca:cacheType, op:optionsURL, nf:nofollow});
+        chrome.tabs.sendMessage(tab.id, {bl:blacklist, ct:checkType, ca:cacheType, op:optionsURL, nf:nofollow, he:hashElement});
     });
 });
 
@@ -85,7 +91,7 @@ function check(url, callback) {
             clearTimeout(XMLHttpTimeout);
             if (200 <= xhr.status && xhr.status < 400){
                 // If there is a hashtag in the URL
-                if(url.indexOf("#")!=-1){
+                if(getItem("hashElement")=="true" && url.indexOf("#")!=-1){
                     var parser = new DOMParser ();
                     var responseDoc = parser.parseFromString (xhr.responseText, "text/html");
                     var fragID = url.substring(url.indexOf("#")+1,url.length);

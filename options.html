@@ -177,8 +177,15 @@
 		<hr/>
 		<strong>Nofollow Links</strong>
 		<p>By default, Check My Links will not check links with a link rel attribute of 'nofollow', you should apply this attribute to links you don't want the extension to trigger (such as Log Out, Sign Out links etc).</p>
-		    <strong>Check Links with rel="nofollow":<strong> <input type="checkbox" name="noFollow" id="noFollow" value="1"><br />
-    <hr/>
+	    <label for="noFollow">Check Links with rel="nofollow":</label> <input type="checkbox" name="noFollow" id="noFollow" value="1"><br />
+    	
+    	<hr/>
+
+		<strong>Hash Links</strong>
+		<p>By default, Check My Links will look for an element on the target page with an id matching the hash fragment. If it is not found the link is reported as a 404. Uncheck to disable this behaviour.</p>
+	    <label for="hashElement">Check for element with hash id:</label> <input type="checkbox" name="hashElement" id="hashElement" value="1"><br />
+
+	    <hr/>
 
 		<div id="support">
 
